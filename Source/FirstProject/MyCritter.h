@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Warrior.generated.h"
+#include "MyCritter.generated.h"
 
 UCLASS()
-class FIRSTPROJECT_API AWarrior : public APawn
+class FIRSTPROJECT_API AMyCritter : public APawn
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AWarrior();
+
+public:
+	// Sets default values for this pawn's properties
+	AMyCritter();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,18 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditAnywhere)
-	class UStaticMeshComponent* MeshComponent;
-
-	UPROPERTY(EditAnywhere)
-	class UCameraComponent* Camera;
-
-private:
-	void MoveForward(float value);
-	void MoveRight(float value);
-
-	FVector CurrentVelocity;
-	float MaxSpeed;
 };
